@@ -1,14 +1,15 @@
 // @material-ui/icons
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+
 // core components/views for Admin layout
-import Dashboard from "./views/Dashboard/Dashboard";
+import Video from "./views/Video/index";
 
 const dashboardRoutes = [
     {
-        path: "/songs",
-        name: "Songs",
-        icon: CloudUploadIcon,
-        component: Dashboard,
+        path: "/videos",
+        name: "Videos",
+        icon: LibraryMusicIcon,
+        component: Video,
         layout: ""
     },
 ];

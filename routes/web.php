@@ -17,7 +17,7 @@ Route::prefix('/')->middleware('auth')->group( function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::get('/songs', function () {
+    Route::get('/videos', function () {
         return view('welcome');
     });
 });
