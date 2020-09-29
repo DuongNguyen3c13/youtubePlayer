@@ -13,9 +13,13 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/')->middleware('auth')->group( function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/songs', function () {
+        return view('welcome');
+    });
 });
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
