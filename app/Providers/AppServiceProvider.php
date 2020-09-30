@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Services\Interfaces\VideoServiceInterface;
+use App\Services\VideoService;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(VideoServiceInterface::class, function() {
+            return new VideoService();
+        });
     }
 }

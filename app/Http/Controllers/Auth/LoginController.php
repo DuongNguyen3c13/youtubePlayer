@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/songs';
+    protected $redirectTo = '/videos';
 
     /**
      * Create a new controller instance.

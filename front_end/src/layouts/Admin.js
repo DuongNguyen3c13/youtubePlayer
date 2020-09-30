@@ -25,7 +25,7 @@ const switchRoutes = (
           />
         );
     })}
-    <Redirect from="/" to="/songs" />
+    <Redirect from="/" to="/videos" />
   </Switch>
 );
 

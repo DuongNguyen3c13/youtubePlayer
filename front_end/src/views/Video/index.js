@@ -9,7 +9,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 
-
 // core components
 import Table from "./../../components/Table/Table";
 import styles from "../../../src/assets/jss/material-dashboard-react/views/stallStyle.js";

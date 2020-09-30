@@ -15,4 +15,21 @@ class TrimStrings extends Middleware
         'password',
         'password_confirmation',
     ];
+
+    /**
+     * Transform the given value.
+     *
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return mixed
+     */
+    protected function transform($key, $value)
+    {
+        $val = parent::transform($key, $value);
+        if($val === 'undefined' || $val === 'null') {
+            $val = null;
+        }
+
+        return $val;
+    }
 }
