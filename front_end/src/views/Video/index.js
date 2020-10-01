@@ -11,7 +11,7 @@ import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 
 // core components
 import Table from "./../../components/Table/Table";
-import styles from "../../../src/assets/jss/material-dashboard-react/views/stallStyle.js";
+import styles from "../../../src/assets/jss/material-dashboard-react/views/videoStyle.js";
 const useStyles = makeStyles(styles);
 
 export default function Video() {
@@ -20,6 +20,16 @@ export default function Video() {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        axios.get(`api/v1/videos?page=` + currentPage)
+            .then((response) => {
+                setTableData(response.data.payload.videos);
+                setPageCount(response.data.payload.lastPage);
+                setLoading(false);
+            })
+    }, [currentPage]);
 
     return (
         <div>
@@ -32,32 +42,33 @@ export default function Video() {
             >
                 Add a new video
             </Button>
-            {/*{tableData.length > 0 &&*/}
-            {/*<div>*/}
-            {/*    <Table*/}
-            {/*        tableHead={[*/}
-            {/*            ["shop_id", "Shop ID"],*/}
-            {/*            ["name", "name"],*/}
-            {/*            ["status", "Status"],*/}
-            {/*            ["action", "Action"],*/}
-            {/*        ]}*/}
-            {/*        customClasses={classes}*/}
-            {/*        tableData={tableData}*/}
-            {/*    />*/}
-            {/*    <Pagination*/}
-            {/*        showFirstButton*/}
-            {/*        showLastButton*/}
-            {/*        page={currentPage}*/}
-            {/*        count={pageCount}*/}
-            {/*        onChange={(e, page) => setCurrentPage(page)}*/}
-            {/*    />*/}
-            {/*</div>*/}
-            {/*}*/}
-            {/*<Backdrop*/}
-            {/*    className={classes.backdrop}*/}
-            {/*    open={loading === true}>*/}
-            {/*    <CircularProgress color="inherit" />*/}
-            {/*</Backdrop>*/}
+            {tableData.length > 0 &&
+            <div>
+                <Table
+                    tableHead={[
+                        ["no", "#"],
+                        ["name", "name"],
+                        ["link", "link"],
+                        ["thumbnail", "Thumbnail"],
+                        ["action", "Action"],
+                    ]}
+                    tableData={tableData}
+                    customClasses={classes}
+                />
+                <Pagination
+                    showFirstButton
+                    showLastButton
+                    page={currentPage}
+                    count={pageCount}
+                    onChange={(e, page) => setCurrentPage(page)}
+                />
+            </div>
+            }
+            <Backdrop
+                className={classes.backdrop}
+                open={loading === true}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
         </div>
     )
 }

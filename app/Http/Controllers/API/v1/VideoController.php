@@ -22,4 +22,11 @@ class VideoController extends BaseController
         }
         return fail([]);
     }
+
+    public function list()
+    {
+        $videos = $this->service->list();
+
+        return success($videos);
+    }
 }
