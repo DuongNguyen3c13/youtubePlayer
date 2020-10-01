@@ -9,6 +9,11 @@ const videoStyle = {
     mb20: {
         marginBottom: theme.spacing(1)
     },
-
+    backdrop: {
+        color: "#fff",
+    },
+    no: {
+        width: "30px"
+    }
 }
 export default videoStyle;

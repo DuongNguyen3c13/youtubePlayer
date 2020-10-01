@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\v1\VideoController;
+
 Route::prefix('videos')->group(function () {
     //other route here
-    Route::post('/', [\App\Http\Controllers\API\v1\VideoController::class, 'store']);
+    Route::get('/', [VideoController::class, 'list']);
+    Route::post('/', [VideoController::class, 'store']);
 });
