@@ -16,25 +16,31 @@ class VideoService implements VideoServiceInterface
 
     public function list()
     {
-        $array = [];
         $videos = Video::orderByDesc('created_at')->paginate(self::PER_PAGE);
 
-        foreach ($videos as $key => $video) {
-            $array[] = [
-                $video->id,
-                $video->name,
-                $video->link,
-                $video->thumbnail,
-            ];
+        return $videos->toArray();
+    }
+
+    public function show(int $id)
+    {
+        $video =  Video::find($id);
+
+        return $video->toArray();
+    }
+
+    public function update(array $requests, int $id)
+    {
+        return Video::where('id', $id)->update($requests);
+    }
+
+    public function delete(int $id)
+    {
+        $video = Video::find($id);
+        if (!is_null($video)) {
+            $video->delete();
+            return true;
         }
 
-        return [
-            'lastPage' => $videos->lastPage(),
-            'currentPage' => $videos->currentPage(),
-            'lastPageUrl' => $videos->previousPageUrl(),
-            'nextPageUrl' => $videos->nextPageUrl(),
-            'path' => $videos->path() . '?page=',
-            'videos' => $array
-        ];
+        return false;
     }
 }

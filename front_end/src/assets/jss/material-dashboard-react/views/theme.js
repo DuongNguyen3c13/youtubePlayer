@@ -7,5 +7,5 @@ const theme = {
         ];
         return spacings[spacing];
     },
-}
+};
 export default theme;

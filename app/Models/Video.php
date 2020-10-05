@@ -11,4 +11,14 @@ class Video extends Model
         'thumbnail',
         'link',
     ];
+
+    public function toArray()
+    {
+        return [
+            $this->id,
+            $this->name,
+            $this->link,
+            $this->thumbnail,
+        ];
+    }
 }
