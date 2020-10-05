@@ -5,7 +5,6 @@ import { Button, CardMedia } from '@material-ui/core';
 
 export default function Form(props) {
     const {setName, setLink, setThumbnail, handleFormAction, name, link, thumbnail, button, classes} = props;
-    console.log(classes.thumb);
     return (
         <div>
             <div>
