@@ -31,7 +31,7 @@ export default function VideoEdit(props) {
         formData.append("thumbnail", thumbnail);
         formData.append('_method', 'PUT')
         axios
-            .post(`/api/v1/videos/` + 666, formData)
+            .post(`/api/v1/videos/` + param, formData)
             .then(({data}) => {
                 if (data.success) {
                     setResult('Updated video successfully');

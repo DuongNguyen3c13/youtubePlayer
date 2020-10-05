@@ -23,6 +23,9 @@ Route::prefix('/')->middleware('auth')->group( function () {
     Route::get('/videos/create', function () {
         return view('welcome');
     });
+    Route::get('/videos/{id}/edit', function () {
+        return view('welcome');
+    });
 });
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
