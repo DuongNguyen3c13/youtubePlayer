@@ -4,6 +4,7 @@ import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 // core components/views for Admin layout
 import Video from "./views/Video/index";
 import VideoCreate from "./views/Video/Create";
+import VideoEdit from "./views/Video/Edit";
 
 const dashboardRoutes = [
     {
@@ -12,6 +13,14 @@ const dashboardRoutes = [
         icon: '',
         isSub: true,
         component: VideoCreate,
+        layout: ""
+    },
+    {
+        path: "/videos/:id/edit",
+        name: "Videos",
+        icon: '',
+        isSub: true,
+        component: VideoEdit,
         layout: ""
     },
     {
