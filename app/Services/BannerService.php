@@ -25,13 +25,18 @@ class BannerService implements BannerServiceInterface
                 if (!$saved) {
                     return false;
                 }
-                Banner::create(['link' => $fileName, 'type' => $this->parseType($data['type'])]);
+                Banner::create(['link' => env('APP_URL').'/'.$fileName, 'type' => $this->parseType($data['type'])]);
             } catch (\Exception $e) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public function get($type) {
+        $banners = Banner::where('type', $type)->orderByDesc('created_at')->limit(5)->get();
+        return $banners->pluck('link')->toArray();
     }
 
     public function list()
@@ -60,7 +65,7 @@ class BannerService implements BannerServiceInterface
                 Banner::where('id', $currentBanner['id'])->update(
                     [
                         'type' => $this->parseType($data['type']),
-                        'link' => $fileName
+                        'link' => env('APP_URL').'/'.$fileName
                     ]
                 );
             } catch (\Exception $e) {

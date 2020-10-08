@@ -14,6 +14,11 @@ class VideoService implements VideoServiceInterface
         return Video::create($data);
     }
 
+    public function get() {
+         $videos = Video::orderByDesc('created_at')->limit(self::PER_PAGE)->get();
+        return $videos->toArray();
+    }
+
     public function list()
     {
         $videos = Video::orderByDesc('created_at')->paginate(self::PER_PAGE);

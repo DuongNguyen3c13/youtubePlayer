@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 
 class Banner extends Model
 {
+    const TYPE_SMALL = 0;
+    const TYPE_LARGE = 1;
     protected $fillable = [
         'link',
         'type',
