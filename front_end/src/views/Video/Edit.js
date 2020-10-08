@@ -8,7 +8,7 @@ import Form from "./form";
 const useStyles = makeStyles(styles);
 
 export default function VideoEdit(props) {
-    const classes = useStyles;
+    const classes = useStyles();
     const [name, setName] = useState();
     const [link, setLink] = useState();
     const [thumbnail, setThumbnail] = useState();
@@ -18,9 +18,9 @@ export default function VideoEdit(props) {
     useEffect(() => {
         axios.get(`/api/v1/videos/` + param)
             .then((response) => {
-                setName(response.data.payload[1]);
-                setLink(response.data.payload[2]);
-                setThumbnail(response.data.payload[3]);
+                setName(response.data.payload.name);
+                setLink(response.data.payload.link);
+                setThumbnail(response.data.payload.thumbnail);
             })
     }, []);
 

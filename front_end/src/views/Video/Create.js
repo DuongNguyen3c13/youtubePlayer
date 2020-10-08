@@ -10,7 +10,7 @@ import styles from '../../../src/assets/jss/material-dashboard-react/views/video
 const useStyles = makeStyles(styles);
 
 export default function VideoCreate() {
-    const classes = useStyles;
+    const classes = useStyles();
     const [name, setName] = useState();
     const [link, setLink] = useState();
     const [thumbnail, setThumbnail] = useState();

@@ -25,7 +25,7 @@ import tableStyles from "../../../src/assets/jss/material-dashboard-react/compon
 const useStyles = makeStyles(styles);
 const useTableStyles = makeStyles(tableStyles);
 
-export default function Video() {
+export default function Banner() {
     const classes = useStyles();
     const tableClasses = useTableStyles();
     const [tableData, setTableData] = useState([]);
@@ -34,9 +34,8 @@ export default function Video() {
     const [loading, setLoading] = useState(false);
     const [tableHead, setTableHead] = useState([
         ["no", "#"],
-        ["name", "Name"],
-        ["link", "Link"],
-        ["thumbnail", "Thumbnail"],
+        ["banner", "Banner"],
+        ["type", "Type"],
         ["action", "Action"],
     ]);
 
@@ -46,7 +45,7 @@ export default function Video() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`/api/v1/videos?page=` + currentPage)
+        axios.get(`/api/v1/banners?page=` + currentPage)
             .then((response) => {
                 setTableData(response.data.payload.data);
                 setPageCount(response.data.payload.last_page);
@@ -66,7 +65,7 @@ export default function Video() {
     };
 
     const confirmDelete = () => {
-        axios.delete(`api/v1/videos/` + removeId)
+        axios.delete(`api/v1/banners/` + removeId)
             .then((response) => {
                 if (response.data.success) {
                     setTableData(response.data.payload.data);
@@ -86,9 +85,9 @@ export default function Video() {
                 variant="contained"
                 color="primary"
                 component="span"
-                onClick={() => {window.location.href = "/videos/create"}}
+                onClick={() => {window.location.href = "/banners/create"}}
             >
-                Add a new video
+                Add a new banner
             </Button>
             <div
                 className={classes.removeResult}
@@ -117,6 +116,7 @@ export default function Video() {
                             return (
                                 <TableRow key={key} className={tableClasses.tableBodyRow}>
                                     {Object.entries(prop).map((item) => {
+                                        console.log(prop);
                                         return (
                                             <TableCell className={tableClasses.tableCell} key={key}>
                                                 {item[1]}
@@ -126,7 +126,7 @@ export default function Video() {
                                     <TableCell className={tableClasses.tableCell} key={key}>
                                         <EditIcon
                                             className={`${classes.actionCell} ${classes.editAction}`}
-                                            onClick={() => {window.location.href = "/videos/" + prop.id + "/edit/"}}
+                                            onClick={() => {window.location.href = "/banners/" + prop.id + "/edit/"}}
                                         />
                                         <DeleteIcon
                                             className={`${classes.actionCell} ${classes.deleteAction}`}

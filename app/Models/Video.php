@@ -15,10 +15,10 @@ class Video extends Model
     public function toArray()
     {
         return [
-            $this->id,
-            $this->name,
-            $this->link,
-            $this->thumbnail,
+            'id' => $this->id,
+            'name' => $this->name,
+            'link' => $this->link,
+            'thumbnail' => $this->thumbnail,
         ];
     }
 }

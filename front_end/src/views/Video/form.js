@@ -2,7 +2,6 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Button, CardMedia } from '@material-ui/core';
 
-
 export default function Form(props) {
     const {setName, setLink, setThumbnail, handleFormAction, name, link, thumbnail, button, classes} = props;
     return (
@@ -42,7 +41,6 @@ export default function Form(props) {
                 />
             </div>
             <Button
-                className={classes.mt20}
                 variant="contained"
                 color="primary"
                 component="span"
@@ -51,8 +49,7 @@ export default function Form(props) {
                 {button}
             </Button>
             <Button
-                className={classes.ml20}
-                style={{marginLeft: '10px'}}
+                className={classes.ml10}
                 variant="contained"
                 color="secondary"
                 component="span"
