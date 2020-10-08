@@ -18,8 +18,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import styles from "../../../src/assets/jss/material-dashboard-react/views/videoStyle.js";
@@ -116,7 +114,6 @@ export default function Video() {
                     </TableHead>
                     <TableBody>
                         {tableData.map((prop, key) => {
-                            console.log(prop);
                             return (
                                 <TableRow key={key} className={tableClasses.tableBodyRow}>
                                     {Object.entries(prop).map((item) => {
@@ -129,11 +126,11 @@ export default function Video() {
                                     <TableCell className={tableClasses.tableCell} key={key}>
                                         <EditIcon
                                             className={`${classes.actionCell} ${classes.editAction}`}
-                                            onClick={() => {window.location.href = "/videos/" + prop[0] + "/edit/"}}
+                                            onClick={() => {window.location.href = "/videos/" + prop.id + "/edit/"}}
                                         />
                                         <DeleteIcon
                                             className={`${classes.actionCell} ${classes.deleteAction}`}
-                                            onClick={() => handleClickDelete(prop[0])}
+                                            onClick={() => handleClickDelete(prop.id)}
                                         />
                                     </TableCell>
                                 </TableRow>

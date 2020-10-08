@@ -13,18 +13,31 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('/')->middleware('auth')->group( function () {
+Route::prefix('/')->middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::get('/videos', function () {
-        return view('welcome');
+    Route::prefix('/videos')->group(function () {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+        Route::get('/create', function () {
+            return view('welcome');
+        });
+        Route::get('/{id}/edit', function () {
+            return view('welcome');
+        });
     });
-    Route::get('/videos/create', function () {
-        return view('welcome');
-    });
-    Route::get('/videos/{id}/edit', function () {
-        return view('welcome');
+    Route::prefix('/banners')->group(function () {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+        Route::get('/create', function () {
+            return view('welcome');
+        });
+        Route::get('/{id}/edit', function () {
+            return view('welcome');
+        });
     });
 });
 Auth::routes();

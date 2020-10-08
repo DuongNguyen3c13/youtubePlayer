@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\BannerService;
+use App\Services\Interfaces\BannerServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 use App\Services\Interfaces\VideoServiceInterface;
@@ -28,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(VideoServiceInterface::class, function() {
             return new VideoService();
+        });
+        $this->app->singleton(BannerServiceInterface::class, function() {
+            return new BannerService();
         });
     }
 }

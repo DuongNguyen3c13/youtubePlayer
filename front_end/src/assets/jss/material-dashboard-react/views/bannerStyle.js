@@ -3,7 +3,10 @@ import {
     dangerColor,
     successColor,
 } from "../../material-dashboard-react.js";
-const videoStyle = {
+const bannerStyle = {
+    none: {
+        display: 'none'
+    },
     formInput: {
         marginBottom: '20px'
     },
@@ -48,6 +51,9 @@ const videoStyle = {
     thumb: {
         height: '30px',
         width: '30px',
-    }
+    },
+    uploadButton: {
+        display: 'flex'
+    },
 };
-export default videoStyle;
+export default bannerStyle;
