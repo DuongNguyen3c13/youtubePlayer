@@ -54,7 +54,7 @@ class Kernel extends HttpKernel
             'throttle:api',
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            'auth:ghost',
+            // 'auth:ghost',
         ],
     ];
 

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\API\v1\BannerController;
 
-Route::prefix('banners')->group(function () {
+Route::prefix('banners')->group(['middleware' => ['auth:ghost']], function () {
     //other route here
     Route::get('/', [BannerController::class, 'list']);
     Route::post('/', [BannerController::class, 'store']);
