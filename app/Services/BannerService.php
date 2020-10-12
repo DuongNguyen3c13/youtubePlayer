@@ -25,7 +25,7 @@ class BannerService implements BannerServiceInterface
                 if (!$saved) {
                     return false;
                 }
-                Banner::create(['link' => env('APP_URL').'/'.$fileName, 'type' => $this->parseType($data['type'])]);
+                Banner::create(['link' => env('APP_URL').'/images/'.$fileName, 'type' => $this->parseType($data['type'])]);
             } catch (\Exception $e) {
                 return false;
             }
@@ -65,7 +65,7 @@ class BannerService implements BannerServiceInterface
                 Banner::where('id', $currentBanner['id'])->update(
                     [
                         'type' => $this->parseType($data['type']),
-                        'link' => env('APP_URL').'/'.$fileName
+                        'link' => env('APP_URL').'/images/'.$fileName
                     ]
                 );
             } catch (\Exception $e) {
