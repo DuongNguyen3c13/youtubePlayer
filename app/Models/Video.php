@@ -17,7 +17,7 @@ class Video extends Model
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'link' => $this->link,
+            'url' => $this->link,
             'thumbnail' => $this->thumbnail,
         ];
     }
