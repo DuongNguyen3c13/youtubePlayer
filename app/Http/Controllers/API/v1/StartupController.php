@@ -19,7 +19,8 @@ class StartupController extends BaseController
         $videos = $this->videoService->get();
         $smallBanners = $this->bannerService->get(Banner::TYPE_SMALL);
         $bigBanners = $this->bannerService->get(Banner::TYPE_LARGE);
+        $placeHolderVideo = "https://vjs.zencdn.net/v/oceans.mp4"
 
-        return success(compact('videos', 'smallBanners', 'bigBanners'));
+        return success(compact('videos', 'smallBanners', 'bigBanners', 'placeHolderVideo'));
     }
 }
