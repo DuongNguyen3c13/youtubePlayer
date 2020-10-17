@@ -116,10 +116,9 @@ export default function Banner() {
                             return (
                                 <TableRow key={key} className={tableClasses.tableBodyRow}>
                                     {Object.entries(prop).map((item) => {
-                                        console.log(prop);
                                         return (
                                             <TableCell className={tableClasses.tableCell} key={key}>
-                                                {item[1]}
+                                                {item[0] === 'link' ? <img src={item[1]} width="100%"/> : item[1]}
                                             </TableCell>
                                         );
                                     })}

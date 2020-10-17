@@ -119,7 +119,7 @@ export default function Video() {
                                     {Object.entries(prop).map((item) => {
                                         return (
                                             <TableCell className={tableClasses.tableCell} key={key}>
-                                                {item[1]}
+                                                {item[0] === 'thumbnail' ? <img src={item[1]} width="100%"/> : item[1]}
                                             </TableCell>
                                         );
                                     })}

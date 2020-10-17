@@ -15,6 +15,7 @@ import Icon from "@material-ui/core/Icon";
 import AdminNavbarLinks from "../../components/Navbars/AdminNavbarLinks.js";
 
 import styles from "../../assets/jss/material-dashboard-react/components/sidebarStyle.js";
+import logo from '../../assets/img/logo.png'
 
 const useStyles = makeStyles(styles);
 
@@ -24,7 +25,7 @@ export default function Sidebar(props) {
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  const { color, logo, image, logoText, routes } = props;
+  const { color, image, logoText, routes } = props;
     var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -75,9 +76,9 @@ export default function Sidebar(props) {
         className={classNames(classes.logoLink)}
       >
         <div className={classes.logoImage}>
-          <img src={logo} alt="logo" className={classes.img} />
+          <img src={logo} alt="logo" className={classes.img} width="50" />
         </div>
-        {logoText}
+        <span style={{marginLeft: '10px'}}>{"KARAHOME"}</span>
       </a>
     </div>
   );
