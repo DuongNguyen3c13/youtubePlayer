@@ -69,7 +69,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8" style="margin-top:20px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                <img src="/imgs/logo.png" width="450" />
+                <img src="/images/logo.png" width="450" />
                 <h1 style="color:white;margin-top: 50px;">Admin Portal</h1>
             </div>
             <div class="col-md-8">
